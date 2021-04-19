@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../tukanoid_styling.dart';
 
 extension WidgetExtension on Widget {
   Widget margin(EdgeInsets margin) => Container(

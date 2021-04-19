@@ -1,12 +1,14 @@
 library tukanoid_styling;
 
-export 'styling/divider.dart';
-export 'styling/edge_insets.dart';
-export 'styling/icon.dart';
-export 'styling/container_image.dart';
-export 'styling/position.dart';
-export 'styling/text.dart';
-export 'styling/widget.dart';
+import 'styling/imports.dart';
 
-export 'extensions/size.dart';
-export 'extensions/string.dart';
+part 'styling/divider.dart';
+part 'styling/edge_insets.dart';
+part 'styling/icon.dart';
+part 'styling/container_image.dart';
+part 'styling/position.dart';
+part 'styling/text.dart';
+part 'styling/widget.dart';
+
+part 'extensions/size.dart';
+part 'extensions/string.dart';

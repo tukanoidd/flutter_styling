@@ -1,4 +1,4 @@
-import 'imports.dart';
+part of '../tukanoid_styling.dart';
 
 class VerticalDividerStyle {
   final Color color;

@@ -1,8 +1,4 @@
-import 'package:flutter/widgets.dart';
-
-import 'imports.dart';
-
-import 'edge_insets.dart';
+part of '../tukanoid_styling.dart';
 
 class ContainerStyling {
   final BorderRadius? borderRadius;

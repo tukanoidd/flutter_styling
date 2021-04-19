@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../tukanoid_styling.dart';
 
 extension SizeExtension on Size {
   Size mult(other) => Size(

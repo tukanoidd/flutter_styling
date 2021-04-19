@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-
-import 'imports.dart';
-
-import 'edge_insets.dart';
-import 'widget.dart';
+part of '../tukanoid_styling.dart';
 
 class TappableIcon extends StatefulWidget {
   final void Function()? onTap;

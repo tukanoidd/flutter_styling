@@ -1,6 +1,4 @@
-import 'imports.dart';
-
-import 'edge_insets.dart';
+part of '../tukanoid_styling.dart';
 
 class TappableText extends StatefulWidget {
   final void Function() onTap;
