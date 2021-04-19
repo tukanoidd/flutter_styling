@@ -146,9 +146,16 @@ class TextStyling {
         hoverUnderline: hoverUnderline,
       );
 
-  TextStyling With({Color? newTextColor, TextDecoration? newDecoration, bool? newAutoSize}) =>
+  TextStyling With({
+    Color? newTextColor,
+    TextDecoration? newDecoration,
+    bool? newAutoSize,
+    EdgeInsetsStyling? newMarginStyling,
+    double? newTextContainerVW,
+  }) =>
       TextStyling(
         textContainerVH: textContainerVH,
+        textContainerVW: newTextContainerVW ?? textContainerVW,
         fontSizeVH: fontSizeVH,
         fontFamily: fontFamily,
         overflow: overflow,
@@ -157,9 +164,8 @@ class TextStyling {
         textAlignment: textAlignment,
         textColor: newTextColor ?? textColor,
         decoration: newDecoration ?? decoration,
-        marginStyling: marginStyling,
+        marginStyling: newMarginStyling ?? marginStyling,
         paddingStyling: paddingStyling,
-        textContainerVW: textContainerVW,
         maxLines: maxLines,
         autoSize: newAutoSize ?? autoSize,
       );

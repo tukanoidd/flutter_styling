@@ -57,7 +57,7 @@ class ContainerImageStyling {
     this.image,
     this.onTap,
     this.onHover,
-    this.backgroundColor,
+    this.backgroundColor = Colors.grey,
     this.inkResponseHoverColor = Colors.transparent,
     this.inkResponseFocusColor = Colors.transparent,
     this.inkResponseHighlightColor = Colors.transparent,
@@ -83,10 +83,10 @@ class ContainerImageStyling {
     if (useRatio && (heightVH != null || widthVW != null)) {
       if (heightVH != null) {
         final double h = heightVH! * height;
-        size = Size(h  * ratioWH, h);
+        size = Size(h * ratioWH, h);
       } else if (widthVW != null) {
         final double w = widthVW! * width;
-        size = Size(w, w  / ratioWH);
+        size = Size(w, w / ratioWH);
       }
     }
 
@@ -106,7 +106,7 @@ class ContainerImageStyling {
           shape: containerStyling!.shape != null
               ? containerStyling!.shape!
               : BoxShape.rectangle,
-          color: backgroundColor,
+          color: image == null ? backgroundColor : null,
           image: image != null
               ? DecorationImage(
                   image: image!,
@@ -124,12 +124,18 @@ class ContainerImageStyling {
       widget = Image(
         image: image!,
         alignment: alignment,
-        color: backgroundColor,
         height: heightVH != null ? heightVH! * height : null,
         width: widthVW != null ? widthVW! * width : null,
         fit: fit,
         repeat: repeat,
       );
+    }
+
+    if (debugName != null) {
+      print(debugName);
+      print(widget);
+      print('color: $backgroundColor');
+      print('image: $image');
     }
 
     if (onTap != null || onHover != null) {
@@ -147,11 +153,12 @@ class ContainerImageStyling {
     return widget;
   }
 
-  ContainerImageStyling With(
-          {void Function()? newOnTap,
-          Color? newBackgroundColor,
-          ImageProvider? newImage,
-          ContainerStyling? newContainerStyling}) =>
+  ContainerImageStyling With({
+    void Function()? newOnTap,
+    Color? newBackgroundColor,
+    ImageProvider? newImage,
+    ContainerStyling? newContainerStyling,
+  }) =>
       ContainerImageStyling(
         image: newImage ?? image,
         ratioWH: ratioWH,
