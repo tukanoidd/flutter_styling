@@ -1,7 +1,12 @@
 library tukanoid_styling;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'styling/divider.dart';
+export 'styling/edge_insets.dart';
+export 'styling/icon.dart';
+export 'styling/container_image.dart';
+export 'styling/position.dart';
+export 'styling/text.dart';
+export 'styling/widget.dart';
+
+export 'extensions/size.dart';
+export 'extensions/string.dart';

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../styling.dart';
-
 import 'imports.dart';
+
+import 'edge_insets.dart';
+import 'widget.dart';
 
 class TappableIcon extends StatefulWidget {
   final void Function()? onTap;
