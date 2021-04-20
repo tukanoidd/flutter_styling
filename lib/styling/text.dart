@@ -35,7 +35,7 @@ class _TappableTextState extends State<TappableText> {
         if (widget.onHover != null) widget.onHover!(hovering);
       },
       child: widget.childTextStyling
-          .With(
+          .copyWith(
             newDecoration:
                 _isHovering ? TextDecoration.underline : TextDecoration.none,
           )
@@ -132,6 +132,25 @@ class TextStyling {
     return result;
   }
 
+  Widget button(String text, Size viewportSize,
+      {void Function()? onTap,
+        BorderRadius? borderRadius,
+        required Size size}) {
+    Widget result = ElevatedButton(
+      onPressed: onTap ?? () {},
+      child: container(text, viewportSize),
+      style: borderRadius != null
+          ? ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: borderRadius))
+          : null,
+    ).constrained(
+      width: size.width,
+      height: size.height,
+    );
+
+    return result;
+  }
+
   TappableText tappable({
     required void Function() onTap,
     required String text,
@@ -146,7 +165,7 @@ class TextStyling {
         hoverUnderline: hoverUnderline,
       );
 
-  TextStyling With({
+  TextStyling copyWith({
     Color? newTextColor,
     TextDecoration? newDecoration,
     bool? newAutoSize,

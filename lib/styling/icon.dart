@@ -67,11 +67,11 @@ class _TappableIconState extends State<TappableIcon>
           ? AnimatedBuilder(
               animation: colorAnimationTween,
               builder: (BuildContext context, Widget? child) => widget.iconStyling
-                  .With(newColor: colorAnimationTween.value)
+                  .copyWith(newColor: colorAnimationTween.value)
                   .toWidget(viewportSize),
             )
           : widget.iconStyling
-          .With(newColor: widget.color)
+          .copyWith(newColor: widget.color)
           .toWidget(viewportSize),
     );
   }
@@ -128,7 +128,7 @@ class IconStyling {
         animationDuration: animationDuration,
       );
 
-  IconStyling With({
+  IconStyling copyWith({
     Color? newColor,
     IconData? newIcon,
     EdgeInsetsStyling? newMarginStyling,

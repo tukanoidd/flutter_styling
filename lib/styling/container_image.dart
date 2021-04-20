@@ -15,7 +15,7 @@ class ContainerStyling {
     this.border,
   });
 
-  ContainerStyling With({
+  ContainerStyling copyWith({
     BorderRadius? newBorderRadius,
     BoxShape? newShape,
     EdgeInsetsStyling? newPaddingStyling,
@@ -153,7 +153,7 @@ class ContainerImageStyling {
     return widget;
   }
 
-  ContainerImageStyling With({
+  ContainerImageStyling copyWith({
     void Function()? newOnTap,
     Color? newBackgroundColor,
     ImageProvider? newImage,
@@ -179,7 +179,7 @@ class ContainerImageStyling {
         containerStyling: newContainerStyling != null
             ? (containerStyling == null
                 ? newContainerStyling
-                : containerStyling!.With(
+                : containerStyling!.copyWith(
                     newMarginStyling: newContainerStyling.marginStyling,
                     newBorder: newContainerStyling.border,
                     newBorderRadius: newContainerStyling.borderRadius,
