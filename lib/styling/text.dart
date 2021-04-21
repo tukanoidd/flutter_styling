@@ -62,6 +62,7 @@ class TextStyling {
   final EdgeInsetsStyling? marginStyling;
   final int maxLines;
   final bool autoSize;
+  final FontStyle fontStyle;
 
   TextStyling({
     this.textContainerVH,
@@ -78,17 +79,19 @@ class TextStyling {
     this.paddingStyling,
     this.maxLines = 1,
     this.autoSize = true,
+    this.fontStyle = FontStyle.normal,
   });
 
   /// Turn styling data into Google font
   ///
   /// [viewportHeight] - Screen Height
-  TextStyle fontStyle(double viewportHeight) => GoogleFonts.getFont(
+  TextStyle toTextStyle(double viewportHeight) => GoogleFonts.getFont(
         fontFamily ?? Styling.globalFontFamily,
         fontSize: fontSizeVH * viewportHeight,
         fontWeight: fontWeight,
         color: textColor,
         decoration: decoration,
+        fontStyle: FontStyle.normal,
       );
 
   /// Create container around the Text widget
@@ -99,14 +102,14 @@ class TextStyling {
     Widget result = autoSize
         ? AutoSizeText(
             text,
-            style: fontStyle(viewportSize.height),
+            style: toTextStyle(viewportSize.height),
             textAlign: textAlignment,
             overflow: TextOverflow.visible,
             maxLines: maxLines,
           )
         : Text(
             text,
-            style: fontStyle(viewportSize.height),
+            style: toTextStyle(viewportSize.height),
             textAlign: textAlignment,
             overflow: TextOverflow.visible,
             maxLines: maxLines,
@@ -132,21 +135,55 @@ class TextStyling {
     return result;
   }
 
-  Widget button(String text, Size viewportSize,
-      {void Function()? onTap,
-        BorderRadius? borderRadius,
-        required Size size}) {
+  Widget elevatedButton(
+    String text,
+    Size viewportSize, {
+    void Function()? onTap,
+    BorderRadius? borderRadius,
+    Size? size,
+  }) {
     Widget result = ElevatedButton(
       onPressed: onTap ?? () {},
       child: container(text, viewportSize),
       style: borderRadius != null
           ? ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: borderRadius))
+              shape: RoundedRectangleBorder(borderRadius: borderRadius))
           : null,
-    ).constrained(
-      width: size.width,
-      height: size.height,
     );
+
+    if (size != null)
+      result = result.constrained(
+        width: size.width,
+        height: size.height,
+      );
+
+    return result;
+  }
+
+  Widget textButton(
+    String text,
+    Size viewportSize, {
+    void Function()? onTap,
+    ButtonStyle? buttonStyle,
+    Size? sizeVS,
+    EdgeInsetsStyling? marginStyling,
+  }) {
+    Widget result = TextButton(
+      child: container(text, viewportSize),
+      onPressed: onTap ?? () {},
+      style: buttonStyle,
+    );
+
+    if (sizeVS != null || marginStyling != null) {
+      final Size? size = sizeVS?.mult(viewportSize);
+
+      result = Container(
+        child: result,
+        width: size?.width == 0 ? null : size?.width,
+        height: size?.height == 0 ? null : size?.height,
+        margin: marginStyling?.toEdgeInsets(viewportSize),
+      );
+    }
 
     return result;
   }
@@ -187,6 +224,7 @@ class TextStyling {
         paddingStyling: paddingStyling,
         maxLines: maxLines,
         autoSize: newAutoSize ?? autoSize,
+        fontStyle: fontStyle,
       );
 }
 
@@ -253,7 +291,7 @@ class TextFieldStyling {
 
     Widget textField = TextField(
       textAlignVertical: textAlignVertical,
-      style: textStyling.fontStyle(height),
+      style: textStyling.toTextStyle(height),
       decoration: InputDecoration(
         fillColor: fillColor,
         filled: filled,
@@ -265,7 +303,7 @@ class TextFieldStyling {
         focusedBorder: focusedBorder,
         focusedErrorBorder: focusedErrorBorder,
         hintText: hintText,
-        hintStyle: hintTextStyling.fontStyle(height),
+        hintStyle: hintTextStyling.toTextStyle(height),
       ),
       expands: false,
     );
