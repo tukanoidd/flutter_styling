@@ -12,3 +12,7 @@ part 'styling/widget.dart';
 
 part 'extensions/size.dart';
 part 'extensions/string.dart';
+
+class Styling {
+  static String globalFontFamily = 'Sen';
+}

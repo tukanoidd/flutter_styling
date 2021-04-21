@@ -50,7 +50,7 @@ class _TappableTextState extends State<TappableText> {
 class TextStyling {
   final double? textContainerVH;
   final double? textContainerVW;
-  final String fontFamily;
+  final String? fontFamily;
   final double fontSizeVH;
   final FontWeight fontWeight;
   Color textColor;
@@ -66,7 +66,7 @@ class TextStyling {
   TextStyling({
     this.textContainerVH,
     this.textContainerVW,
-    this.fontFamily = 'Sen',
+    this.fontFamily,
     required this.fontSizeVH,
     this.fontWeight = FontWeight.w400,
     this.textColor = Colors.black,
@@ -84,7 +84,7 @@ class TextStyling {
   ///
   /// [viewportHeight] - Screen Height
   TextStyle fontStyle(double viewportHeight) => GoogleFonts.getFont(
-        fontFamily,
+        fontFamily ?? Styling.globalFontFamily,
         fontSize: fontSizeVH * viewportHeight,
         fontWeight: fontWeight,
         color: textColor,
