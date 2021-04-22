@@ -1,1 +1,0 @@
-**Examples available in the wiki [here](https://github.com/ReinBentdal/styled_widget/wiki/Examples)**
