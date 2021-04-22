@@ -60,7 +60,7 @@ class TextStyling {
   final TextDecoration decoration;
   final EdgeInsetsStyling? paddingStyling;
   final EdgeInsetsStyling? marginStyling;
-  final int maxLines;
+  final int? maxLines;
   final bool autoSize;
   final FontStyle fontStyle;
 
