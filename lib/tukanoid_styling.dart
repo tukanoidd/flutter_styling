@@ -1,5 +1,7 @@
 library tukanoid_styling;
 
+import 'package:flutter/cupertino.dart';
+
 import 'styling/imports.dart';
 
 part 'styling/divider.dart';

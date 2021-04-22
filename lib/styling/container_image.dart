@@ -98,13 +98,15 @@ class ContainerImageStyling {
         height: size != null
             ? size.height
             : (heightVH != null ? heightVH! * height : null),
-        padding: containerStyling!.paddingStyling?.toEdgeInsets(viewportSize),
-        margin: containerStyling!.marginStyling?.toEdgeInsets(viewportSize),
+        padding: containerStyling?.paddingStyling?.toEdgeInsets(viewportSize),
+        margin: containerStyling?.marginStyling?.toEdgeInsets(viewportSize),
         decoration: BoxDecoration(
-          border: containerStyling!.border,
-          borderRadius: containerStyling!.borderRadius,
-          shape: containerStyling!.shape != null
-              ? containerStyling!.shape!
+          border: containerStyling?.border,
+          borderRadius: containerStyling?.borderRadius,
+          shape: containerStyling != null
+              ? (containerStyling!.shape != null
+                  ? containerStyling!.shape!
+                  : BoxShape.rectangle)
               : BoxShape.rectangle,
           color: image == null ? backgroundColor : null,
           image: image != null
@@ -129,13 +131,6 @@ class ContainerImageStyling {
         fit: fit,
         repeat: repeat,
       );
-    }
-
-    if (debugName != null) {
-      print(debugName);
-      print(widget);
-      print('color: $backgroundColor');
-      print('image: $image');
     }
 
     if (onTap != null || onHover != null) {
@@ -179,7 +174,7 @@ class ContainerImageStyling {
         containerStyling: newContainerStyling != null
             ? (containerStyling == null
                 ? newContainerStyling
-                : containerStyling!.copyWith(
+                : containerStyling?.copyWith(
                     newMarginStyling: newContainerStyling.marginStyling,
                     newBorder: newContainerStyling.border,
                     newBorderRadius: newContainerStyling.borderRadius,
