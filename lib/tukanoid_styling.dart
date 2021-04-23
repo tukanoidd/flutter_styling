@@ -14,6 +14,7 @@ part 'styling/widget.dart';
 
 part 'extensions/size.dart';
 part 'extensions/string.dart';
+part 'extensions/list.dart';
 
 class Styling {
   static String globalFontFamily = 'Sen';
