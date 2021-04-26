@@ -60,7 +60,7 @@ class TextStyling {
   final TextDecoration decoration;
   final EdgeInsetsStyling? paddingStyling;
   final EdgeInsetsStyling? marginStyling;
-  final int? maxLines;
+  final int maxLines;
   final bool autoSize;
   final FontStyle fontStyle;
 
@@ -105,14 +105,14 @@ class TextStyling {
             style: toTextStyle(viewportSize.height),
             textAlign: textAlignment,
             overflow: TextOverflow.visible,
-            maxLines: maxLines,
+            maxLines: maxLines > -1 ? maxLines : null,
           )
         : Text(
             text,
             style: toTextStyle(viewportSize.height),
             textAlign: textAlignment,
             overflow: TextOverflow.visible,
-            maxLines: maxLines,
+            maxLines: maxLines > -1 ? maxLines : null,
           );
 
     if (textContainerVH != null ||
@@ -217,6 +217,7 @@ class TextStyling {
     TextAlign? newTextAlignment,
     EdgeInsetsStyling? newPaddingStyling,
     FontStyle? newFontStyle,
+    int? newMaxLines,
   }) =>
       TextStyling(
         textContainerVH: newTextContainerVH ?? textContainerVH,
@@ -231,7 +232,7 @@ class TextStyling {
         decoration: newDecoration ?? decoration,
         marginStyling: newMarginStyling ?? marginStyling,
         paddingStyling: newPaddingStyling ?? paddingStyling,
-        maxLines: maxLines,
+        maxLines: newMaxLines ?? maxLines,
         autoSize: newAutoSize ?? autoSize,
         fontStyle: newFontStyle ?? fontStyle,
       );
