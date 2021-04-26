@@ -105,14 +105,14 @@ class TextStyling {
             style: toTextStyle(viewportSize.height),
             textAlign: textAlignment,
             overflow: TextOverflow.visible,
-            maxLines: maxLines > -1 ? maxLines : null,
+            maxLines: maxLines > 0 ? maxLines : null,
           )
         : Text(
             text,
             style: toTextStyle(viewportSize.height),
             textAlign: textAlignment,
             overflow: TextOverflow.visible,
-            maxLines: maxLines > -1 ? maxLines : null,
+            maxLines: maxLines > 0 ? maxLines : null,
           );
 
     if (textContainerVH != null ||
