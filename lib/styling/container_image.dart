@@ -148,29 +148,64 @@ class ContainerImageStyling {
     return widget;
   }
 
+  ContainerImageStyling copyWithStyling(ContainerImageStyling newContainerImageStyling) => copyWith(
+    newContainerStyling: newContainerImageStyling.containerStyling,
+    newOnTap: newContainerImageStyling.onTap,
+    newBackgroundColor: newContainerImageStyling.backgroundColor,
+    newImage: newContainerImageStyling.image,
+    newAlignment: newContainerImageStyling.alignment,
+    newDebugName: newContainerImageStyling.debugName,
+    newFit: newContainerImageStyling.fit,
+    newHeightVH: newContainerImageStyling.heightVH,
+    newInkResponseFocusColor: newContainerImageStyling.inkResponseFocusColor,
+    newInkResponseHighlightColor: newContainerImageStyling.inkResponseHighlightColor,
+    newInkResponseHoverColor: newContainerImageStyling.inkResponseHoverColor,
+    newInkResponseSplashColor: newContainerImageStyling.inkResponseSplashColor,
+    newOnHover: newContainerImageStyling.onHover,
+    newRatioWH: newContainerImageStyling.ratioWH,
+    newRepeat: newContainerImageStyling.repeat,
+    newScale: newContainerImageStyling.scale,
+    newUseRation: newContainerImageStyling.useRatio,
+    newWidthVW: newContainerImageStyling.widthVW,
+  );
+
   ContainerImageStyling copyWith({
     void Function()? newOnTap,
     Color? newBackgroundColor,
     ImageProvider? newImage,
     ContainerStyling? newContainerStyling,
+    double? newRatioWH,
+    AlignmentGeometry? newAlignment,
+    double? newHeightVH,
+    double? newWidthVW,
+    BoxFit? newFit,
+    double? newScale,
+    ImageRepeat? newRepeat,
+    Color? newInkResponseFocusColor,
+    Color? newInkResponseHighlightColor,
+    Color? newInkResponseHoverColor,
+    Color? newInkResponseSplashColor,
+    void Function(bool)? newOnHover,
+    String? newDebugName,
+    bool? newUseRation
   }) =>
       ContainerImageStyling(
         image: newImage ?? image,
-        ratioWH: ratioWH,
-        alignment: alignment,
-        heightVH: heightVH,
-        widthVW: widthVW,
-        fit: fit,
+        ratioWH: newRatioWH ?? ratioWH,
+        alignment: newAlignment ?? alignment,
+        heightVH: newHeightVH ?? heightVH,
+        widthVW: newWidthVW ?? widthVW,
+        fit: newFit ?? fit,
         backgroundColor: newBackgroundColor ?? backgroundColor,
-        scale: scale,
-        repeat: repeat,
-        inkResponseFocusColor: inkResponseFocusColor,
-        inkResponseHighlightColor: inkResponseHighlightColor,
-        inkResponseHoverColor: inkResponseHoverColor,
-        inkResponseSplashColor: inkResponseSplashColor,
-        onHover: onHover,
+        scale: newScale ?? scale,
+        repeat: newRepeat ?? repeat,
+        inkResponseFocusColor: newInkResponseFocusColor ?? inkResponseFocusColor,
+        inkResponseHighlightColor: newInkResponseHighlightColor ?? inkResponseHighlightColor,
+        inkResponseHoverColor: newInkResponseHoverColor ?? inkResponseHoverColor,
+        inkResponseSplashColor: newInkResponseSplashColor ?? inkResponseSplashColor,
+        onHover: newOnHover ?? onHover,
         onTap: newOnTap ?? onTap,
-        debugName: debugName,
+        debugName: newDebugName ?? debugName,
         containerStyling: newContainerStyling != null
             ? (containerStyling == null
                 ? newContainerStyling
@@ -182,6 +217,6 @@ class ContainerImageStyling {
                     newShape: newContainerStyling.shape,
                   ))
             : containerStyling,
-        useRatio: useRatio,
+        useRatio: newUseRation ?? useRatio,
       );
 }
