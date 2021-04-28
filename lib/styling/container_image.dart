@@ -38,10 +38,10 @@ class ContainerImageStyling {
   final void Function()? onTap;
   final void Function(bool)? onHover;
   final Color? backgroundColor;
-  final Color inkResponseHoverColor;
-  final Color inkResponseHighlightColor;
-  final Color inkResponseFocusColor;
-  final Color inkResponseSplashColor;
+  final Color? inkResponseHoverColor;
+  final Color? inkResponseHighlightColor;
+  final Color? inkResponseFocusColor;
+  final Color? inkResponseSplashColor;
   final BoxFit fit;
   final AlignmentGeometry alignment;
   final ImageRepeat repeat;
@@ -57,11 +57,11 @@ class ContainerImageStyling {
     this.image,
     this.onTap,
     this.onHover,
-    this.backgroundColor = Colors.grey,
-    this.inkResponseHoverColor = Colors.transparent,
-    this.inkResponseFocusColor = Colors.transparent,
-    this.inkResponseHighlightColor = Colors.transparent,
-    this.inkResponseSplashColor = Colors.transparent,
+    this.backgroundColor,
+    this.inkResponseHoverColor,
+    this.inkResponseFocusColor,
+    this.inkResponseHighlightColor,
+    this.inkResponseSplashColor,
     this.fit = BoxFit.fill,
     this.alignment = Alignment.center,
     this.repeat = ImageRepeat.noRepeat,
@@ -108,7 +108,7 @@ class ContainerImageStyling {
                   ? containerStyling!.shape!
                   : BoxShape.rectangle)
               : BoxShape.rectangle,
-          color: image == null ? backgroundColor : null,
+          color: image == null ? (backgroundColor ?? Colors.grey) : null,
           image: image != null
               ? DecorationImage(
                   image: image!,
@@ -138,57 +138,62 @@ class ContainerImageStyling {
         onTap: onTap ?? () {},
         onHover: onHover ?? (bool hovering) {},
         child: widget,
-        highlightColor: inkResponseHighlightColor,
-        hoverColor: inkResponseHoverColor,
-        splashColor: inkResponseSplashColor,
-        focusColor: inkResponseFocusColor,
+        highlightColor: inkResponseHighlightColor ?? Colors.transparent,
+        hoverColor: inkResponseHoverColor ?? Colors.transparent,
+        splashColor: inkResponseSplashColor ?? Colors.transparent,
+        focusColor: inkResponseFocusColor ?? Colors.transparent,
       );
     }
 
     return widget;
   }
 
-  ContainerImageStyling copyWithStyling(ContainerImageStyling newContainerImageStyling) => copyWith(
-    newContainerStyling: newContainerImageStyling.containerStyling,
-    newOnTap: newContainerImageStyling.onTap,
-    newBackgroundColor: newContainerImageStyling.backgroundColor,
-    newImage: newContainerImageStyling.image,
-    newAlignment: newContainerImageStyling.alignment,
-    newDebugName: newContainerImageStyling.debugName,
-    newFit: newContainerImageStyling.fit,
-    newHeightVH: newContainerImageStyling.heightVH,
-    newInkResponseFocusColor: newContainerImageStyling.inkResponseFocusColor,
-    newInkResponseHighlightColor: newContainerImageStyling.inkResponseHighlightColor,
-    newInkResponseHoverColor: newContainerImageStyling.inkResponseHoverColor,
-    newInkResponseSplashColor: newContainerImageStyling.inkResponseSplashColor,
-    newOnHover: newContainerImageStyling.onHover,
-    newRatioWH: newContainerImageStyling.ratioWH,
-    newRepeat: newContainerImageStyling.repeat,
-    newScale: newContainerImageStyling.scale,
-    newUseRation: newContainerImageStyling.useRatio,
-    newWidthVW: newContainerImageStyling.widthVW,
-  );
+  ContainerImageStyling copyWithStyling(
+          ContainerImageStyling newContainerImageStyling) =>
+      copyWith(
+        newContainerStyling: newContainerImageStyling.containerStyling,
+        newOnTap: newContainerImageStyling.onTap,
+        newBackgroundColor: newContainerImageStyling.backgroundColor,
+        newImage: newContainerImageStyling.image,
+        newAlignment: newContainerImageStyling.alignment,
+        newDebugName: newContainerImageStyling.debugName,
+        newFit: newContainerImageStyling.fit,
+        newHeightVH: newContainerImageStyling.heightVH,
+        newInkResponseFocusColor:
+            newContainerImageStyling.inkResponseFocusColor,
+        newInkResponseHighlightColor:
+            newContainerImageStyling.inkResponseHighlightColor,
+        newInkResponseHoverColor:
+            newContainerImageStyling.inkResponseHoverColor,
+        newInkResponseSplashColor:
+            newContainerImageStyling.inkResponseSplashColor,
+        newOnHover: newContainerImageStyling.onHover,
+        newRatioWH: newContainerImageStyling.ratioWH,
+        newRepeat: newContainerImageStyling.repeat,
+        newScale: newContainerImageStyling.scale,
+        newUseRation: newContainerImageStyling.useRatio,
+        newWidthVW: newContainerImageStyling.widthVW,
+      );
 
-  ContainerImageStyling copyWith({
-    void Function()? newOnTap,
-    Color? newBackgroundColor,
-    ImageProvider? newImage,
-    ContainerStyling? newContainerStyling,
-    double? newRatioWH,
-    AlignmentGeometry? newAlignment,
-    double? newHeightVH,
-    double? newWidthVW,
-    BoxFit? newFit,
-    double? newScale,
-    ImageRepeat? newRepeat,
-    Color? newInkResponseFocusColor,
-    Color? newInkResponseHighlightColor,
-    Color? newInkResponseHoverColor,
-    Color? newInkResponseSplashColor,
-    void Function(bool)? newOnHover,
-    String? newDebugName,
-    bool? newUseRation
-  }) =>
+  ContainerImageStyling copyWith(
+          {void Function()? newOnTap,
+          Color? newBackgroundColor,
+          ImageProvider? newImage,
+          ContainerStyling? newContainerStyling,
+          double? newRatioWH,
+          AlignmentGeometry? newAlignment,
+          double? newHeightVH,
+          double? newWidthVW,
+          BoxFit? newFit,
+          double? newScale,
+          ImageRepeat? newRepeat,
+          Color? newInkResponseFocusColor,
+          Color? newInkResponseHighlightColor,
+          Color? newInkResponseHoverColor,
+          Color? newInkResponseSplashColor,
+          void Function(bool)? newOnHover,
+          String? newDebugName,
+          bool? newUseRation}) =>
       ContainerImageStyling(
         image: newImage ?? image,
         ratioWH: newRatioWH ?? ratioWH,
@@ -199,10 +204,14 @@ class ContainerImageStyling {
         backgroundColor: newBackgroundColor ?? backgroundColor,
         scale: newScale ?? scale,
         repeat: newRepeat ?? repeat,
-        inkResponseFocusColor: newInkResponseFocusColor ?? inkResponseFocusColor,
-        inkResponseHighlightColor: newInkResponseHighlightColor ?? inkResponseHighlightColor,
-        inkResponseHoverColor: newInkResponseHoverColor ?? inkResponseHoverColor,
-        inkResponseSplashColor: newInkResponseSplashColor ?? inkResponseSplashColor,
+        inkResponseFocusColor:
+            newInkResponseFocusColor ?? inkResponseFocusColor,
+        inkResponseHighlightColor:
+            newInkResponseHighlightColor ?? inkResponseHighlightColor,
+        inkResponseHoverColor:
+            newInkResponseHoverColor ?? inkResponseHoverColor,
+        inkResponseSplashColor:
+            newInkResponseSplashColor ?? inkResponseSplashColor,
         onHover: newOnHover ?? onHover,
         onTap: newOnTap ?? onTap,
         debugName: newDebugName ?? debugName,
