@@ -71,6 +71,7 @@ class ContainerImageStyling {
     this.debugName,
     this.containerStyling,
     this.useRatio = false,
+    this.svgFile,
   });
 
   Widget _emptyContainer(Size? size, Size viewportSize, Widget? child) {
@@ -196,25 +197,27 @@ class ContainerImageStyling {
         newWidthVW: newContainerImageStyling.widthVW,
       );
 
-  ContainerImageStyling copyWith(
-          {void Function()? newOnTap,
-          Color? newBackgroundColor,
-          ImageProvider? newImage,
-          ContainerStyling? newContainerStyling,
-          double? newRatioWH,
-          AlignmentGeometry? newAlignment,
-          double? newHeightVH,
-          double? newWidthVW,
-          BoxFit? newFit,
-          double? newScale,
-          ImageRepeat? newRepeat,
-          Color? newInkResponseFocusColor,
-          Color? newInkResponseHighlightColor,
-          Color? newInkResponseHoverColor,
-          Color? newInkResponseSplashColor,
-          void Function(bool)? newOnHover,
-          String? newDebugName,
-          bool? newUseRation}) =>
+  ContainerImageStyling copyWith({
+    void Function()? newOnTap,
+    Color? newBackgroundColor,
+    ImageProvider? newImage,
+    ContainerStyling? newContainerStyling,
+    double? newRatioWH,
+    AlignmentGeometry? newAlignment,
+    double? newHeightVH,
+    double? newWidthVW,
+    BoxFit? newFit,
+    double? newScale,
+    ImageRepeat? newRepeat,
+    Color? newInkResponseFocusColor,
+    Color? newInkResponseHighlightColor,
+    Color? newInkResponseHoverColor,
+    Color? newInkResponseSplashColor,
+    void Function(bool)? newOnHover,
+    String? newDebugName,
+    bool? newUseRation,
+    File? newSVGFile,
+  }) =>
       ContainerImageStyling(
         image: newImage ?? image,
         ratioWH: newRatioWH ?? ratioWH,
@@ -248,5 +251,6 @@ class ContainerImageStyling {
                   ))
             : containerStyling,
         useRatio: newUseRation ?? useRatio,
+        svgFile: newSVGFile ?? svgFile,
       );
 }
