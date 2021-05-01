@@ -15,6 +15,7 @@ dependencies:
 
   styled_widget:
   google_fonts:
+  flutter_svg:
   auto_size_text: 3.0.0-nullsafety.0
   auto_size_text_field: 1.0.0-nullsafety.1
   hexcolor:

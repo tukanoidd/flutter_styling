@@ -35,6 +35,7 @@ class ContainerImageStyling {
   final double? widthVW;
   final double? heightVH;
   ImageProvider? image;
+  File? svgFile;
   final void Function()? onTap;
   final void Function(bool)? onHover;
   final Color? backgroundColor;
@@ -72,6 +73,43 @@ class ContainerImageStyling {
     this.useRatio = false,
   });
 
+  Widget _emptyContainer(Size? size, Size viewportSize, Widget? child) {
+    final double width = viewportSize.width;
+    final double height = viewportSize.height;
+
+    return Container(
+      width: size != null
+          ? size.width
+          : (widthVW != null ? widthVW! * width : null),
+      height: size != null
+          ? size.height
+          : (heightVH != null ? heightVH! * height : null),
+      padding: containerStyling?.paddingStyling?.toEdgeInsets(viewportSize),
+      margin: containerStyling?.marginStyling?.toEdgeInsets(viewportSize),
+      decoration: BoxDecoration(
+        border: containerStyling?.border,
+        borderRadius: containerStyling?.borderRadius,
+        shape: containerStyling != null
+            ? (containerStyling!.shape != null
+                ? containerStyling!.shape!
+                : BoxShape.rectangle)
+            : BoxShape.rectangle,
+        color: image == null ? (backgroundColor ?? Colors.grey) : null,
+        image: image != null
+            ? DecorationImage(
+                image: image!,
+                alignment: alignment,
+                fit: fit,
+                repeat: repeat,
+                scale: scale,
+              )
+            : null,
+      ),
+      alignment: alignment,
+      child: child,
+    );
+  }
+
   Widget toWidget(Size viewportSize, {Widget? child}) {
     final double height = viewportSize.height;
     final double width = viewportSize.width;
@@ -90,47 +128,30 @@ class ContainerImageStyling {
       }
     }
 
-    if (containerStyling != null || child != null || image == null) {
-      widget = Container(
-        width: size != null
-            ? size.width
-            : (widthVW != null ? widthVW! * width : null),
-        height: size != null
-            ? size.height
-            : (heightVH != null ? heightVH! * height : null),
-        padding: containerStyling?.paddingStyling?.toEdgeInsets(viewportSize),
-        margin: containerStyling?.marginStyling?.toEdgeInsets(viewportSize),
-        decoration: BoxDecoration(
-          border: containerStyling?.border,
-          borderRadius: containerStyling?.borderRadius,
-          shape: containerStyling != null
-              ? (containerStyling!.shape != null
-                  ? containerStyling!.shape!
-                  : BoxShape.rectangle)
-              : BoxShape.rectangle,
-          color: image == null ? (backgroundColor ?? Colors.grey) : null,
-          image: image != null
-              ? DecorationImage(
-                  image: image!,
-                  alignment: alignment,
-                  fit: fit,
-                  repeat: repeat,
-                  scale: scale,
-                )
-              : null,
-        ),
-        alignment: alignment,
-        child: child,
-      );
+    if (containerStyling != null ||
+        child != null ||
+        image == null ||
+        svgFile == null) {
+      widget = _emptyContainer(size, viewportSize, child);
     } else {
-      widget = Image(
-        image: image!,
-        alignment: alignment,
-        height: heightVH != null ? heightVH! * height : null,
-        width: widthVW != null ? widthVW! * width : null,
-        fit: fit,
-        repeat: repeat,
-      );
+      if (image != null)
+        widget = Image(
+          image: image!,
+          alignment: alignment,
+          height: heightVH != null ? heightVH! * height : null,
+          width: widthVW != null ? widthVW! * width : null,
+          fit: fit,
+          repeat: repeat,
+        );
+      else if (svgFile != null)
+        widget = SvgPicture.file(
+          svgFile!,
+          height: heightVH != null ? heightVH! * height : null,
+          width: widthVW != null ? widthVW! * width : null,
+          fit: fit,
+        );
+      else
+        widget = _emptyContainer(size, viewportSize, child);
     }
 
     if (onTap != null || onHover != null) {
