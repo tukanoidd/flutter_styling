@@ -74,7 +74,7 @@ class ContainerImageStyling {
     this.svgFile,
   });
 
-  Widget _emptyContainer(Size? size, Size viewportSize, Widget? child) {
+  Widget _buildContainer(Size? size, Size viewportSize, Widget? child) {
     final double width = viewportSize.width;
     final double height = viewportSize.height;
 
@@ -131,9 +131,9 @@ class ContainerImageStyling {
 
     if (containerStyling != null ||
         child != null ||
-        image == null ||
-        svgFile == null) {
-      widget = _emptyContainer(size, viewportSize, child);
+        (image == null &&
+        svgFile == null)) {
+      widget = _buildContainer(size, viewportSize, child);
     } else {
       if (image != null)
         widget = Image(
@@ -152,7 +152,7 @@ class ContainerImageStyling {
           fit: fit,
         );
       else
-        widget = _emptyContainer(size, viewportSize, child);
+        widget = _buildContainer(size, viewportSize, child);
     }
 
     if (onTap != null || onHover != null) {
