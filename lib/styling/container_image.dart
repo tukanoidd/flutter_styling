@@ -35,7 +35,7 @@ class ContainerImageStyling {
   final double? widthVW;
   final double? heightVH;
   ImageProvider? image;
-  File? svgFile;
+  Uint8List? svgBytes;
   final void Function()? onTap;
   final void Function(bool)? onHover;
   final Color? backgroundColor;
@@ -71,7 +71,7 @@ class ContainerImageStyling {
     this.debugName,
     this.containerStyling,
     this.useRatio = false,
-    this.svgFile,
+    this.svgBytes,
   });
 
   Widget _buildContainer(Size? size, Size viewportSize, Widget? child) {
@@ -131,8 +131,7 @@ class ContainerImageStyling {
 
     if (containerStyling != null ||
         child != null ||
-        (image == null &&
-        svgFile == null)) {
+        (image == null && svgBytes == null)) {
       widget = _buildContainer(size, viewportSize, child);
     } else {
       if (image != null)
@@ -144,9 +143,9 @@ class ContainerImageStyling {
           fit: fit,
           repeat: repeat,
         );
-      else if (svgFile != null)
-        widget = SvgPicture.file(
-          svgFile!,
+      else if (svgBytes != null)
+        widget = SvgPicture.memory(
+          svgBytes!,
           height: heightVH != null ? heightVH! * height : null,
           width: widthVW != null ? widthVW! * width : null,
           fit: fit,
@@ -251,6 +250,6 @@ class ContainerImageStyling {
                   ))
             : containerStyling,
         useRatio: newUseRation ?? useRatio,
-        svgFile: newSVGFile ?? svgFile,
+        svgBytes: newSVGFile ?? svgBytes,
       );
 }
