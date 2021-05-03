@@ -215,7 +215,7 @@ class ContainerImageStyling {
     void Function(bool)? newOnHover,
     String? newDebugName,
     bool? newUseRation,
-    File? newSVGFile,
+    Uint8List? newSVGBytes,
   }) =>
       ContainerImageStyling(
         image: newImage ?? image,
@@ -250,6 +250,6 @@ class ContainerImageStyling {
                   ))
             : containerStyling,
         useRatio: newUseRation ?? useRatio,
-        svgBytes: newSVGFile ?? svgBytes,
+        svgBytes: newSVGBytes ?? svgBytes,
       );
 }
