@@ -66,13 +66,14 @@ class _TappableIconState extends State<TappableIcon>
       child: widget.animate
           ? AnimatedBuilder(
               animation: colorAnimationTween,
-              builder: (BuildContext context, Widget? child) => widget.iconStyling
+              builder: (BuildContext context, Widget? child) => widget
+                  .iconStyling
                   .copyWith(newColor: colorAnimationTween.value)
                   .toWidget(viewportSize),
             )
           : widget.iconStyling
-          .copyWith(newColor: widget.color)
-          .toWidget(viewportSize),
+              .copyWith(newColor: widget.color)
+              .toWidget(viewportSize),
     );
   }
 }
@@ -128,16 +129,26 @@ class IconStyling {
         animationDuration: animationDuration,
       );
 
+  IconStyling copyWithStyling(IconStyling newIconStyling) => copyWith(
+        newMarginStyling: newIconStyling.marginStyling,
+        newColor: newIconStyling.color,
+        newIcon: newIconStyling.icon,
+        newIconSizeVH: newIconStyling.iconSizeVH,
+        newIconSizeVW: newIconStyling.iconSizeVW,
+      );
+
   IconStyling copyWith({
     Color? newColor,
     IconData? newIcon,
     EdgeInsetsStyling? newMarginStyling,
+    double? newIconSizeVH,
+    double? newIconSizeVW,
   }) =>
       IconStyling(
-        iconSizeVH: iconSizeVH,
+        iconSizeVH: newIconSizeVH ?? iconSizeVH,
         icon: newIcon ?? icon,
         color: newColor ?? color,
-        iconSizeVW: iconSizeVW,
+        iconSizeVW: newIconSizeVW ?? iconSizeVW,
         marginStyling: newMarginStyling ?? marginStyling,
       );
 }
