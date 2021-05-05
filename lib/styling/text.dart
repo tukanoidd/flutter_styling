@@ -165,8 +165,7 @@ class TextStyling {
     Size viewportSize, {
     void Function()? onTap,
     ButtonStyle? buttonStyle,
-    Size? sizeVS,
-    EdgeInsetsStyling? marginStyling,
+    ContainerImageStyling? containerStyling,
   }) {
     Widget result = TextButton(
       child: container(text, viewportSize),
@@ -174,14 +173,10 @@ class TextStyling {
       style: buttonStyle,
     );
 
-    if (sizeVS != null || marginStyling != null) {
-      final Size? size = sizeVS?.mult(viewportSize);
-
-      result = Container(
+    if (containerStyling != null) {
+      result = containerStyling.toWidget(
+        viewportSize,
         child: result,
-        width: size?.width == 0 ? null : size?.width,
-        height: size?.height == 0 ? null : size?.height,
-        margin: marginStyling?.toEdgeInsets(viewportSize),
       );
     }
 
