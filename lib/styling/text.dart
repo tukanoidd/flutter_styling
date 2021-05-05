@@ -305,7 +305,7 @@ class TextFieldStyling {
     double height = viewportSize.height;
     double width = viewportSize.width;
 
-    Widget textField = AutoSizeTextField(
+    Widget textField = TextField(
       maxLines: maxLines,
       obscureText: obscureText,
       textAlignVertical: textAlignVertical,
