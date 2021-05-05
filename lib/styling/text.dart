@@ -307,7 +307,7 @@ class TextFieldStyling {
 
     Widget textField = AutoSizeTextField(
       maxLines: maxLines,
-      obscureText: ,
+      obscureText: obscureText,
       textAlignVertical: textAlignVertical,
       style: textStyling.toTextStyle(height),
       decoration: InputDecoration(
