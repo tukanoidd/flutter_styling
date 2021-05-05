@@ -333,4 +333,41 @@ class TextFieldStyling {
 
     return textField;
   }
+
+  TextFieldStyling copyWith({
+    UnderlineInputBorder? newBorder,
+    UnderlineInputBorder? newEnabledBorder,
+    UnderlineInputBorder? newDisabledBorder,
+    UnderlineInputBorder? newErrorBorder,
+    UnderlineInputBorder? newFocusedBorder,
+    UnderlineInputBorder? newFocusedErrorBorder,
+    TextStyling? newTextStyling,
+    TextStyling? newHintTextStyling,
+    TextAlignVertical? newTextAlignVertical,
+    Color? newFillColor,
+    bool? newFilled,
+    EdgeInsetsStyling? newPaddingStyling,
+    double? newWidthVW,
+    double? newHeightVH,
+    EdgeInsetsStyling? newMarginStyling,
+    TextEditingController? newController,
+  }) =>
+      TextFieldStyling(
+        textStyling: newTextStyling ?? textStyling,
+        hintTextStyling: newHintTextStyling ?? hintTextStyling,
+        filled: newFilled ?? filled,
+        fillColor: newFillColor ?? fillColor,
+        paddingStyling: newPaddingStyling ?? paddingStyling,
+        widthVW: newWidthVW ?? widthVW,
+        heightVH: newHeightVH ?? heightVH,
+        marginStyling: newMarginStyling ?? marginStyling,
+        border: newBorder ?? border,
+        focusedBorder: newFocusedBorder ?? focusedBorder,
+        errorBorder: newErrorBorder ?? errorBorder,
+        disabledBorder: newDisabledBorder ?? disabledBorder,
+        enabledBorder: newEnabledBorder ?? enabledBorder,
+        controller: newController ?? controller,
+        focusedErrorBorder: newFocusedErrorBorder ?? focusedErrorBorder,
+        textAlignVertical: newTextAlignVertical ?? textAlignVertical,
+      );
 }
