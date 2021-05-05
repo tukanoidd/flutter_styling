@@ -263,6 +263,11 @@ class TextFieldStyling {
 
   final EdgeInsetsStyling? marginStyling;
 
+  final int maxLines;
+  final bool obscureText;
+
+  final TextInputType? keyboardType;
+
   final TextEditingController? controller;
 
   TextFieldStyling({
@@ -282,6 +287,9 @@ class TextFieldStyling {
     this.heightVH,
     this.marginStyling,
     this.controller,
+    this.maxLines = 1,
+    this.obscureText = false,
+    this.keyboardType,
   }) {
     border = border ?? defaultUnderlineInputBorder;
     enabledBorder = enabledBorder ?? defaultUnderlineInputBorder;
@@ -297,7 +305,9 @@ class TextFieldStyling {
     double height = viewportSize.height;
     double width = viewportSize.width;
 
-    Widget textField = TextField(
+    Widget textField = AutoSizeTextField(
+      maxLines: maxLines,
+      obscureText: ,
       textAlignVertical: textAlignVertical,
       style: textStyling.toTextStyle(height),
       decoration: InputDecoration(
@@ -315,6 +325,7 @@ class TextFieldStyling {
       ),
       expands: false,
       controller: controller,
+      keyboardType: keyboardType,
     );
 
     if (heightVH != null || widthVW != null || marginStyling != null) {
@@ -346,6 +357,9 @@ class TextFieldStyling {
     double? newHeightVH,
     EdgeInsetsStyling? newMarginStyling,
     TextEditingController? newController,
+    int? newMaxLines,
+    bool? newObscureText,
+    TextInputType? newKeyboardType,
   }) =>
       TextFieldStyling(
         textStyling: newTextStyling ?? textStyling,
@@ -364,5 +378,8 @@ class TextFieldStyling {
         controller: newController ?? controller,
         focusedErrorBorder: newFocusedErrorBorder ?? focusedErrorBorder,
         textAlignVertical: newTextAlignVertical ?? textAlignVertical,
+        maxLines: newMaxLines ?? maxLines,
+        obscureText: newObscureText ?? obscureText,
+        keyboardType: newKeyboardType ?? keyboardType,
       );
 }
