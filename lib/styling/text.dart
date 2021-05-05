@@ -268,6 +268,8 @@ class TextFieldStyling {
 
   final EdgeInsetsStyling? marginStyling;
 
+  final TextEditingController? controller;
+
   TextFieldStyling({
     this.border,
     this.enabledBorder,
@@ -284,6 +286,7 @@ class TextFieldStyling {
     this.widthVW,
     this.heightVH,
     this.marginStyling,
+    this.controller,
   }) {
     border = border ?? defaultUnderlineInputBorder;
     enabledBorder = enabledBorder ?? defaultUnderlineInputBorder;
@@ -316,6 +319,7 @@ class TextFieldStyling {
         hintStyle: hintTextStyling.toTextStyle(height),
       ),
       expands: false,
+      controller: controller,
     );
 
     if (heightVH != null || widthVW != null || marginStyling != null) {
