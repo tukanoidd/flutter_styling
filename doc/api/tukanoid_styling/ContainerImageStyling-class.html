@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the ContainerImageStyling class from the tukanoid_styling library, for the Dart programming language.">
+  <title>ContainerImageStyling class - tukanoid_styling library - Dart API</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">tukanoid_styling</a></li>
+    <li><a href="../tukanoid_styling/tukanoid_styling-library.html">tukanoid_styling</a></li>
+    <li class="self-crumb">ContainerImageStyling class</li>
+  </ol>
+  <div class="self-name">ContainerImageStyling</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../index.html">tukanoid_styling</a></li>
+      <li><a href="../tukanoid_styling/tukanoid_styling-library.html">tukanoid_styling</a></li>
+      <li class="self-crumb">ContainerImageStyling class</li>
+    </ol>
+    
+    <h5>tukanoid_styling library</h5>
+    <ol>
+  <li class="section-title"><a href="../tukanoid_styling/tukanoid_styling-library.html#classes">Classes</a></li>
+  <li><a href="../tukanoid_styling/ContainerImageStyling-class.html">ContainerImageStyling</a></li>
+  <li><a href="../tukanoid_styling/ContainerStyling-class.html">ContainerStyling</a></li>
+  <li><a href="../tukanoid_styling/DividerStyling-class.html">DividerStyling</a></li>
+  <li><a href="../tukanoid_styling/EdgeInsetsStyling-class.html">EdgeInsetsStyling</a></li>
+  <li><a href="../tukanoid_styling/IconStyling-class.html">IconStyling</a></li>
+  <li><a href="../tukanoid_styling/Position-class.html">Position</a></li>
+  <li><a href="../tukanoid_styling/PositionedStyling-class.html">PositionedStyling</a></li>
+  <li><a href="../tukanoid_styling/Styling-class.html">Styling</a></li>
+  <li><a href="../tukanoid_styling/TappableIcon-class.html">TappableIcon</a></li>
+  <li><a href="../tukanoid_styling/TappableText-class.html">TappableText</a></li>
+  <li><a href="../tukanoid_styling/TextFieldStyling-class.html">TextFieldStyling</a></li>
+  <li><a href="../tukanoid_styling/TextStyling-class.html">TextStyling</a></li>
+  <li><a href="../tukanoid_styling/VerticalDividerStyling-class.html">VerticalDividerStyling</a></li>
+
+  <li class="section-title"><a href="../tukanoid_styling/tukanoid_styling-library.html#extension">Extensions</a></li>
+  <li><a href="../tukanoid_styling/ListExtension.html">ListExtension</a></li>
+  <li><a href="../tukanoid_styling/SizeExtension.html">SizeExtension</a></li>
+  <li><a href="../tukanoid_styling/StringExtensio.html">StringExtensio</a></li>
+  <li><a href="../tukanoid_styling/WidgetExtension.html">WidgetExtension</a></li>
+
+
+
+
+
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div><h1><span class="kind-class">ContainerImageStyling</span> class     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ </h1></div>
+
+    <section class="desc markdown">
+      <p>Class used for styling both <a href="https://api.flutter.dev/flutter/widgets/Image-class.html">Image</a> and <a href="https://api.flutter.dev/flutter/widgets/Container-class.html">Container</a> widgets, since both can
+use <a href="https://api.flutter.dev/flutter/painting/ImageProvider-class.html">ImageProvider</a> as background image source (<a href="https://api.flutter.dev/flutter/widgets/Container-class.html">Container</a>) or as just
+image source (<a href="https://api.flutter.dev/flutter/widgets/Image-class.html">Image</a>)</p>
+    </section>
+    
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="ContainerImageStyling" class="callable">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/ContainerImageStyling.html">ContainerImageStyling</a></span><span class="signature">(<span class="parameter" id="-param-widthVW">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">widthVW</span>, </span><span class="parameter" id="-param-heightVH"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">heightVH</span>, </span><span class="parameter" id="-param-image"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">image</span>, </span><span class="parameter" id="-param-onTap"><span class="type-annotation">void</span> <span class="parameter-name">onTap</span>(), </span><span class="parameter" id="-param-onHover"><span class="type-annotation">void</span> <span class="parameter-name">onHover</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span></span>), </span><span class="parameter" id="-param-backgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span><span class="parameter" id="-param-inkResponseHoverColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inkResponseHoverColor</span>, </span><span class="parameter" id="-param-inkResponseFocusColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inkResponseFocusColor</span>, </span><span class="parameter" id="-param-inkResponseHighlightColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inkResponseHighlightColor</span>, </span><span class="parameter" id="-param-inkResponseSplashColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">inkResponseSplashColor</span>, </span><span class="parameter" id="-param-fit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/BoxFit-class.html">BoxFit</a></span> <span class="parameter-name">fit</span> = <span class="default-value">BoxFit.fill</span>, </span><span class="parameter" id="-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html">AlignmentGeometry</a></span> <span class="parameter-name">alignment</span> = <span class="default-value">Alignment.center</span>, </span><span class="parameter" id="-param-repeat"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/ImageRepeat-class.html">ImageRepeat</a></span> <span class="parameter-name">repeat</span> = <span class="default-value">ImageRepeat.noRepeat</span>, </span><span class="parameter" id="-param-scale"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">scale</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="-param-ratioWH"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">ratioWH</span> = <span class="default-value">1.0</span>, </span><span class="parameter" id="-param-debugName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">debugName</span>, </span><span class="parameter" id="-param-containerStyling"><span class="type-annotation"><a href="../tukanoid_styling/ContainerStyling-class.html">ContainerStyling</a>?</span> <span class="parameter-name">containerStyling</span>, </span><span class="parameter" id="-param-useRatio"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useRatio</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-svgBytes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-typed_data/Uint8List-class.html">Uint8List</a>?</span> <span class="parameter-name">svgBytes</span>}</span>)</span>
+        </dt>
+        <dd>
+           
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="alignment" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/alignment.html">alignment</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html">AlignmentGeometry</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="backgroundColor" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/backgroundColor.html">backgroundColor</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="containerStyling" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/containerStyling.html">containerStyling</a></span>
+          <span class="signature">&#8594; <a href="../tukanoid_styling/ContainerStyling-class.html">ContainerStyling</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="debugName" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/debugName.html">debugName</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="fit" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/fit.html">fit</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/BoxFit-class.html">BoxFit</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="hashCode" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd class="inherited">
+          The hash code for this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="heightVH" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/heightVH.html">heightVH</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="image" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/image.html">image</a></span>
+          <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span>&gt;</span>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="inkResponseFocusColor" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/inkResponseFocusColor.html">inkResponseFocusColor</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="inkResponseHighlightColor" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/inkResponseHighlightColor.html">inkResponseHighlightColor</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="inkResponseHoverColor" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/inkResponseHoverColor.html">inkResponseHoverColor</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="inkResponseSplashColor" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/inkResponseSplashColor.html">inkResponseSplashColor</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="onHover" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/onHover.html">onHover</a></span>
+          <span class="signature">&#8594; (void Function?<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span></span>)</span>?)</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="onTap" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/onTap.html">onTap</a></span>
+          <span class="signature">&#8594; (void Function?<span class="signature">()</span>?)</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="ratioWH" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/ratioWH.html">ratioWH</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="repeat" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/repeat.html">repeat</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/ImageRepeat-class.html">ImageRepeat</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>         
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="scale" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/scale.html">scale</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="svgBytes" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/svgBytes.html">svgBytes</a></span>
+          <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-typed_data/Uint8List-class.html">Uint8List</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="useRatio" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/useRatio.html">useRatio</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="widthVW" class="property">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/widthVW.html">widthVW</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="copyWith" class="callable">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/copyWith.html">copyWith</a></span><span class="signature">(<wbr><span class="parameter" id="copyWith-param-newOnTap">{<span class="type-annotation">void</span> <span class="parameter-name">newOnTap</span>(), </span><span class="parameter" id="copyWith-param-newBackgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">newBackgroundColor</span>, </span><span class="parameter" id="copyWith-param-newImage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/ImageProvider-class.html">ImageProvider</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span>&gt;</span>?</span> <span class="parameter-name">newImage</span>, </span><span class="parameter" id="copyWith-param-newContainerStyling"><span class="type-annotation"><a href="../tukanoid_styling/ContainerStyling-class.html">ContainerStyling</a>?</span> <span class="parameter-name">newContainerStyling</span>, </span><span class="parameter" id="copyWith-param-newRatioWH"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">newRatioWH</span>, </span><span class="parameter" id="copyWith-param-newAlignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/AlignmentGeometry-class.html">AlignmentGeometry</a>?</span> <span class="parameter-name">newAlignment</span>, </span><span class="parameter" id="copyWith-param-newHeightVH"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">newHeightVH</span>, </span><span class="parameter" id="copyWith-param-newWidthVW"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">newWidthVW</span>, </span><span class="parameter" id="copyWith-param-newFit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/BoxFit-class.html">BoxFit</a>?</span> <span class="parameter-name">newFit</span>, </span><span class="parameter" id="copyWith-param-newScale"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">newScale</span>, </span><span class="parameter" id="copyWith-param-newRepeat"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/ImageRepeat-class.html">ImageRepeat</a>?</span> <span class="parameter-name">newRepeat</span>, </span><span class="parameter" id="copyWith-param-newInkResponseFocusColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">newInkResponseFocusColor</span>, </span><span class="parameter" id="copyWith-param-newInkResponseHighlightColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">newInkResponseHighlightColor</span>, </span><span class="parameter" id="copyWith-param-newInkResponseHoverColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">newInkResponseHoverColor</span>, </span><span class="parameter" id="copyWith-param-newInkResponseSplashColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">newInkResponseSplashColor</span>, </span><span class="parameter" id="copyWith-param-newOnHover"><span class="type-annotation">void</span> <span class="parameter-name">newOnHover</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span></span>), </span><span class="parameter" id="copyWith-param-newDebugName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">newDebugName</span>, </span><span class="parameter" id="copyWith-param-newUseRation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">newUseRation</span>, </span><span class="parameter" id="copyWith-param-newSVGBytes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-typed_data/Uint8List-class.html">Uint8List</a>?</span> <span class="parameter-name">newSVGBytes</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="../tukanoid_styling/ContainerImageStyling-class.html">ContainerImageStyling</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Creates a copy of the <a href="../tukanoid_styling/ContainerImageStyling-class.html">ContainerImageStyling</a> object by overriding members if
+new optional values are not null 
+                  
+</dd>
+        <dt id="copyWithStyling" class="callable">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/copyWithStyling.html">copyWithStyling</a></span><span class="signature">(<wbr><span class="parameter" id="copyWithStyling-param-newContainerImageStyling"><span class="type-annotation"><a href="../tukanoid_styling/ContainerImageStyling-class.html">ContainerImageStyling</a></span> <span class="parameter-name">newContainerImageStyling</span></span>)
+            <span class="returntype parameter">&#8594; <a href="../tukanoid_styling/ContainerImageStyling-class.html">ContainerImageStyling</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Creates a copy of the <a href="../tukanoid_styling/ContainerStyling-class.html">ContainerStyling</a> object by overriding members if
+new optional values are not null, calls <a href="../tukanoid_styling/ContainerImageStyling/copyWith.html">copyWith</a> with providing all the
+values from the given new <a href="../tukanoid_styling/ContainerImageStyling-class.html">ContainerImageStyling</a> object 
+                  
+</dd>
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="toString" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          A string representation of this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="toWidget" class="callable">
+          <span class="name"><a href="../tukanoid_styling/ContainerImageStyling/toWidget.html">toWidget</a></span><span class="signature">(<wbr><span class="parameter" id="toWidget-param-viewportSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a></span> <span class="parameter-name">viewportSize</span>, </span><span class="parameter" id="toWidget-param-child">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">child</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Create a <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a> based on this styling data
+<code>viewportSize</code> - size of the screen we're taking percentages of
+<code>child</code> - optional child to add to the container if there is one 
+                  
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          The equality operator. <a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+    <li class="section-title"><a href="../tukanoid_styling/ContainerImageStyling-class.html#constructors">Constructors</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/ContainerImageStyling.html">ContainerImageStyling</a></li>
+
+
+    <li class="section-title">
+      <a href="../tukanoid_styling/ContainerImageStyling-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/alignment.html">alignment</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/backgroundColor.html">backgroundColor</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/containerStyling.html">containerStyling</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/debugName.html">debugName</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/fit.html">fit</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/heightVH.html">heightVH</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/image.html">image</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/inkResponseFocusColor.html">inkResponseFocusColor</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/inkResponseHighlightColor.html">inkResponseHighlightColor</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/inkResponseHoverColor.html">inkResponseHoverColor</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/inkResponseSplashColor.html">inkResponseSplashColor</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/onHover.html">onHover</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/onTap.html">onTap</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/ratioWH.html">ratioWH</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/repeat.html">repeat</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/scale.html">scale</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/svgBytes.html">svgBytes</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/useRatio.html">useRatio</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/widthVW.html">widthVW</a></li>
+
+    <li class="section-title"><a href="../tukanoid_styling/ContainerImageStyling-class.html#instance-methods">Methods</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/copyWith.html">copyWith</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/copyWithStyling.html">copyWithStyling</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li><a href="../tukanoid_styling/ContainerImageStyling/toWidget.html">toWidget</a></li>
+
+    <li class="section-title inherited"><a href="../tukanoid_styling/ContainerImageStyling-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tukanoid_styling
+      0.0.1
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static-assets/typeahead.bundle.min.js"></script>
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+</body>
+
+</html>
