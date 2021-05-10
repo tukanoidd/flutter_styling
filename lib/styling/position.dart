@@ -1,5 +1,7 @@
 part of '../tukanoid_styling.dart';
 
+/// Class that is used for [Positioned] widget to define the position of a
+/// [Widget] in a [Stack]
 class Position {
   final double left;
   final double right;
@@ -17,6 +19,8 @@ class Position {
     required this.height,
   });
 
+  /// Construct object from [PositionedStyling]
+  /// [viewportSize] - size of the screen we take percentages of
   Position.fromStyling(PositionedStyling styling, Size viewportSize)
       : left = styling.leftVW * viewportSize.width,
         right = styling.rightVW * viewportSize.width,
@@ -26,6 +30,8 @@ class Position {
         height = styling.heightVH * viewportSize.height;
 }
 
+/// Class for styling the [Position] class by utilizing percentage of the screen
+/// size rather than set pixel size
 class PositionedStyling {
   final double leftVW;
   final double rightVW;

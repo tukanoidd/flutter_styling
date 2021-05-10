@@ -1,5 +1,7 @@
 part of '../tukanoid_styling.dart';
 
+/// Class that makes [Text] or [AutoSizeText] widget tappable by using
+/// [InkResponse] as a wrapper for gesture detection
 class TappableText extends StatefulWidget {
   final void Function() onTap;
   final void Function(bool)? onHover;
@@ -47,6 +49,7 @@ class _TappableTextState extends State<TappableText> {
   }
 }
 
+/// Class used for styling a [Text] or [AutoSizeText] widget
 class TextStyling {
   final double? textContainerVH;
   final double? textContainerVW;
@@ -83,7 +86,6 @@ class TextStyling {
   });
 
   /// Turn styling data into Google font
-  ///
   /// [viewportHeight] - Screen Height
   TextStyle toTextStyle(double viewportHeight) => GoogleFonts.getFont(
         fontFamily ?? Styling.globalFontFamily,
@@ -96,7 +98,7 @@ class TextStyling {
 
   /// Create container around the Text widget
   /// [text] - text of the widget
-  /// [viewportSize] - Screen Height
+  /// [viewportSize] - screen size
   Widget container(String text, Size viewportSize) {
     Widget result = autoSize
         ? AutoSizeText(
@@ -134,6 +136,11 @@ class TextStyling {
     return result;
   }
 
+  /// Create an [ElevatedButton] with styled text as a child
+  /// [text] - Text to show
+  /// [viewportSize] - screen size
+  /// [onTap] - method to call when button is tapped
+  /// [size] - size of the button (in pixels)
   Widget elevatedButton(
     String text,
     Size viewportSize, {
@@ -159,6 +166,14 @@ class TextStyling {
     return result;
   }
 
+  /// Create a [TextButton] with styled text
+  /// [text] - text to show
+  /// [viewportSize] - size of the screen
+  /// [onTap] - method to call when the button is tapped on
+  /// [buttonStyle] - style of the button to use if change from global one is
+  /// needed
+  /// [containerStyling] - styling of the container around the button if needed
+  /// to have one
   Widget textButton(
     String text,
     Size viewportSize, {
@@ -182,6 +197,11 @@ class TextStyling {
     return result;
   }
 
+  /// Create a [TappableText] from this styling
+  /// [onTap] - method to call when text is tapped
+  /// [text] - text to show
+  /// [onHover] - what to do when text is hovered over
+  /// [hoverUnderline] - show the underline when text is hovered over or not
   TappableText tappable({
     required void Function() onTap,
     required String text,
@@ -196,6 +216,8 @@ class TextStyling {
         hoverUnderline: hoverUnderline,
       );
 
+  /// Create a copy of this styling with overridden members by respective
+  /// function parameters
   TextStyling copyWith({
     Color? newTextColor,
     TextDecoration? newDecoration,
@@ -232,7 +254,9 @@ class TextStyling {
       );
 }
 
+/// Class for stying a [TextField]
 class TextFieldStyling {
+  /// Default transparent border
   static final UnderlineInputBorder defaultUnderlineInputBorder =
       UnderlineInputBorder(
     borderSide: new BorderSide(
@@ -300,6 +324,9 @@ class TextFieldStyling {
     if (fillColor == null) fillColor = HexColor('#F0F0F0');
   }
 
+  /// Create a [TextField] widget from this styling
+  /// [hintText] - text to show in the field by default
+  /// [viewportSize] - size of the screen
   Widget toWidget(String hintText, Size viewportSize) {
     double height = viewportSize.height;
     double width = viewportSize.width;
@@ -339,6 +366,8 @@ class TextFieldStyling {
     return textField;
   }
 
+  /// Create a copy of this styling with overridden members by respective
+  /// function parameters
   TextFieldStyling copyWith({
     UnderlineInputBorder? newBorder,
     UnderlineInputBorder? newEnabledBorder,
