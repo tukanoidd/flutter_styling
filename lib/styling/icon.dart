@@ -1,5 +1,7 @@
 part of '../tukanoid_styling.dart';
 
+/// Similar to [IconButton] but with different animation color animation
+/// approach
 class TappableIcon extends StatefulWidget {
   final void Function()? onTap;
   final void Function(bool)? onHover;
@@ -78,6 +80,7 @@ class _TappableIconState extends State<TappableIcon>
   }
 }
 
+/// Class made for styling the [Icon] widget
 class IconStyling {
   final IconData? icon;
   final double? iconSizeVH;
@@ -93,9 +96,9 @@ class IconStyling {
     this.marginStyling,
   });
 
-  /// Turn icon style into the widget
-  ///
-  /// [viewportHeight] - height to screen
+  /// Turn icon style into an [Icon] widget
+  /// [viewportSize] - height to screen
+  /// [debugName] - optional value to make it easier to debug the function
   Widget toWidget(Size viewportSize, {String? debugName}) {
     Widget result = Icon(
       icon,
@@ -111,6 +114,7 @@ class IconStyling {
     return result;
   }
 
+  /// Turn this styling object into a [TappableIcon] button
   Widget button({
     void Function()? onTap,
     void Function(bool)? onHover,
@@ -129,6 +133,8 @@ class IconStyling {
         animationDuration: animationDuration,
       );
 
+  /// Create a new styling object by providing another [IconStyling] object to
+  /// merge with
   IconStyling copyWithStyling(IconStyling newIconStyling) => copyWith(
         newMarginStyling: newIconStyling.marginStyling,
         newColor: newIconStyling.color,
@@ -137,6 +143,8 @@ class IconStyling {
         newIconSizeVW: newIconStyling.iconSizeVW,
       );
 
+  /// Create a copy of this styling object by overriding respective members if
+  /// new values are not null
   IconStyling copyWith({
     Color? newColor,
     IconData? newIcon,

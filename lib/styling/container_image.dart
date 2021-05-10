@@ -1,5 +1,7 @@
 part of '../tukanoid_styling.dart';
 
+/// Class for styling container-specific attributes, used mostly in
+/// [ContainerImageStyling]
 class ContainerStyling {
   final BorderRadius? borderRadius;
   final BoxShape? shape;
@@ -15,6 +17,8 @@ class ContainerStyling {
     this.border,
   });
 
+  /// Creates a copy of the [ContainerStyling] object by overriding members if
+  /// new optional values are not null
   ContainerStyling copyWith({
     BorderRadius? newBorderRadius,
     BoxShape? newShape,
@@ -31,6 +35,9 @@ class ContainerStyling {
       );
 }
 
+/// Class used for styling both [Image] and [Container] widgets, since both can
+/// use [ImageProvider] as background image source ([Container]) or as just
+/// image source ([Image])
 class ContainerImageStyling {
   final double? widthVW;
   final double? heightVH;
@@ -74,6 +81,10 @@ class ContainerImageStyling {
     this.svgBytes,
   });
 
+  /// Private function that lets you build a container with the member values
+  /// [size] - the size of the container
+  /// [viewportSize] - screen size that we are taking percentages of
+  /// [child] - optional child [Widget] that we add to the container if needed
   Widget _buildContainer(Size? size, Size viewportSize, Widget? child) {
     final double width = viewportSize.width;
     final double height = viewportSize.height;
@@ -111,6 +122,9 @@ class ContainerImageStyling {
     );
   }
 
+  /// Create a [Widget] based on this styling data
+  /// [viewportSize] - size of the screen we're taking percentages of
+  /// [child] - optional child to add to the container if there is one
   Widget toWidget(Size viewportSize, {Widget? child}) {
     final double height = viewportSize.height;
     final double width = viewportSize.width;
@@ -119,6 +133,8 @@ class ContainerImageStyling {
 
     Size? size;
 
+    // If we use [ratioWH] for the sizing and at least on of the sizes is defined,
+    // initialize the values of the [size] variable
     if (useRatio && (heightVH != null || widthVW != null)) {
       if (heightVH != null) {
         final double h = heightVH! * height;
@@ -129,6 +145,11 @@ class ContainerImageStyling {
       }
     }
 
+    // If there are any container specific members that are not null, build a
+    // container with optional child [Widget] as well
+    // If not, check if [image] or [svgBytes] are not null ti create their
+    // respective [Widget]s and if both are null while there are still no
+    // container-specific parameters initialized, build an empty container
     if (containerStyling != null ||
         child != null ||
         (image == null && svgBytes == null)) {
@@ -154,6 +175,8 @@ class ContainerImageStyling {
         widget = _buildContainer(size, viewportSize, child);
     }
 
+    // If there are any gestures set, wrap the image/container in gesture
+    // detector (int this case [InkResponse])
     if (onTap != null || onHover != null) {
       widget = InkResponse(
         onTap: onTap ?? () {},
@@ -169,8 +192,12 @@ class ContainerImageStyling {
     return widget;
   }
 
+  /// Creates a copy of the [ContainerStyling] object by overriding members if
+  /// new optional values are not null, calls [copyWith] with providing all the
+  /// values from the given new [ContainerImageStyling] object
   ContainerImageStyling copyWithStyling(
-          ContainerImageStyling newContainerImageStyling) =>
+    ContainerImageStyling newContainerImageStyling,
+  ) =>
       copyWith(
         newContainerStyling: newContainerImageStyling.containerStyling,
         newOnTap: newContainerImageStyling.onTap,
@@ -196,6 +223,8 @@ class ContainerImageStyling {
         newWidthVW: newContainerImageStyling.widthVW,
       );
 
+  /// Creates a copy of the [ContainerImageStyling] object by overriding members if
+  /// new optional values are not null
   ContainerImageStyling copyWith({
     void Function()? newOnTap,
     Color? newBackgroundColor,

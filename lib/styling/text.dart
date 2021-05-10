@@ -95,9 +95,8 @@ class TextStyling {
       );
 
   /// Create container around the Text widget
-  ///
   /// [text] - text of the widget
-  /// [viewportHeight] - Screen Height
+  /// [viewportSize] - Screen Height
   Widget container(String text, Size viewportSize) {
     Widget result = autoSize
         ? AutoSizeText(

@@ -1,5 +1,6 @@
 part of '../tukanoid_styling.dart';
 
+/// Class made for styling the [Divider] widget
 class DividerStyling {
   final double heightVH;
   final Color color;
@@ -7,15 +8,16 @@ class DividerStyling {
   final double indentVW;
   final double thicknessVH;
 
-  DividerStyling(
-      {
-        required this.heightVH,
-        this.color = Colors.black,
-        required this.endIndentVW,
-        required this.indentVW,
-        required this.thicknessVH,
-      });
+  DividerStyling({
+    required this.heightVH,
+    this.color = Colors.black,
+    required this.endIndentVW,
+    required this.indentVW,
+    required this.thicknessVH,
+  });
 
+  /// Create a [Divider] widget by utilizing this styling object
+  /// [viewportSize] - size of the screen we're taking percentage of
   Divider toWidget(Size viewportSize) {
     final double width = viewportSize.width;
     final double height = viewportSize.height;
@@ -30,6 +32,7 @@ class DividerStyling {
   }
 }
 
+/// Class made for styling the [VerticalDivider] widget
 class VerticalDividerStyling {
   final Color color;
   final double thicknessVW;
@@ -46,7 +49,6 @@ class VerticalDividerStyling {
   });
 
   /// Turn the style into the VerticalDivider widget
-  ///
   /// [viewportSize] - Size of the screen
   VerticalDivider toWidget(Size viewportSize) {
     final double width = viewportSize.width;

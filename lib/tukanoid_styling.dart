@@ -22,6 +22,11 @@ part 'extensions/size.dart';
 part 'extensions/string.dart';
 part 'extensions/list.dart';
 
+/// My package for helping me and people who work with me on flutter project to
+/// style applications in a way that doesn't require setting all the styling
+/// parameters inside of the initialization of each widget but rather in a
+/// separate objects that can then turn into those widgets
+
 class Styling {
   static String globalFontFamily = 'Sen';
 }
