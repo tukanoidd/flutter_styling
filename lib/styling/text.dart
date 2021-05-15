@@ -12,6 +12,7 @@ class TappableText extends StatefulWidget {
   final Color? focusColor;
   final Color? splashColor;
   final Color? highlightColor;
+  final bool alwaysUnderline;
 
   const TappableText({
     Key? key,
@@ -24,6 +25,7 @@ class TappableText extends StatefulWidget {
     this.focusColor,
     this.splashColor,
     this.highlightColor,
+    this.alwaysUnderline = false,
   }) : super(key: key);
 
   @override
@@ -37,9 +39,7 @@ class _TappableTextState extends State<TappableText> {
 
   @override
   Widget build(BuildContext context) {
-    final Size viewportSize = MediaQuery
-        .of(context)
-        .size;
+    final Size viewportSize = MediaQuery.of(context).size;
 
     return InkResponse(
       onTap: widget.onTap,
@@ -54,13 +54,18 @@ class _TappableTextState extends State<TappableText> {
       highlightColor: widget.highlightColor ?? defaultColor,
       child: widget.childTextStyling
           .copyWith(
-        newDecoration:
-        _isHovering ? TextDecoration.underline : TextDecoration.none,
-      )
+            newDecoration: widget.alwaysUnderline
+                ? TextDecoration.underline
+                : (widget.hoverUnderline
+                    ? (_isHovering
+                        ? TextDecoration.underline
+                        : TextDecoration.none)
+                    : TextDecoration.none),
+          )
           .container(
-        widget.text,
-        viewportSize,
-      ),
+            widget.text,
+            viewportSize,
+          ),
     );
   }
 }
@@ -103,8 +108,7 @@ class TextStyling {
 
   /// Turn styling data into Google font
   /// [viewportHeight] - Screen Height
-  TextStyle toTextStyle(double viewportHeight) =>
-      GoogleFonts.getFont(
+  TextStyle toTextStyle(double viewportHeight) => GoogleFonts.getFont(
         fontFamily ?? Styling.globalFontFamily,
         fontSize: fontSizeVH * viewportHeight,
         fontWeight: fontWeight,
@@ -119,19 +123,19 @@ class TextStyling {
   Widget container(String text, Size viewportSize) {
     Widget result = autoSize
         ? AutoSizeText(
-      text,
-      style: toTextStyle(viewportSize.height),
-      textAlign: textAlignment,
-      overflow: TextOverflow.visible,
-      maxLines: maxLines > 0 ? maxLines : null,
-    )
+            text,
+            style: toTextStyle(viewportSize.height),
+            textAlign: textAlignment,
+            overflow: TextOverflow.visible,
+            maxLines: maxLines > 0 ? maxLines : null,
+          )
         : Text(
-      text,
-      style: toTextStyle(viewportSize.height),
-      textAlign: textAlignment,
-      overflow: TextOverflow.visible,
-      maxLines: maxLines > 0 ? maxLines : null,
-    );
+            text,
+            style: toTextStyle(viewportSize.height),
+            textAlign: textAlignment,
+            overflow: TextOverflow.visible,
+            maxLines: maxLines > 0 ? maxLines : null,
+          );
 
     if (textContainerVH != null ||
         textContainerVW != null ||
@@ -158,18 +162,19 @@ class TextStyling {
   /// [viewportSize] - screen size
   /// [onTap] - method to call when button is tapped
   /// [size] - size of the button (in pixels)
-  Widget elevatedButton(String text,
-      Size viewportSize, {
-        void Function()? onTap,
-        BorderRadius? borderRadius,
-        Size? size,
-      }) {
+  Widget elevatedButton(
+    String text,
+    Size viewportSize, {
+    void Function()? onTap,
+    BorderRadius? borderRadius,
+    Size? size,
+  }) {
     Widget result = ElevatedButton(
       onPressed: onTap ?? () {},
       child: container(text, viewportSize),
       style: borderRadius != null
           ? ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: borderRadius))
+              shape: RoundedRectangleBorder(borderRadius: borderRadius))
           : null,
     );
 
@@ -190,12 +195,13 @@ class TextStyling {
   /// needed
   /// [containerStyling] - styling of the container around the button if needed
   /// to have one
-  Widget textButton(String text,
-      Size viewportSize, {
-        void Function()? onTap,
-        ButtonStyle? buttonStyle,
-        ContainerImageStyling? containerStyling,
-      }) {
+  Widget textButton(
+    String text,
+    Size viewportSize, {
+    void Function()? onTap,
+    ButtonStyle? buttonStyle,
+    ContainerImageStyling? containerStyling,
+  }) {
     Widget result = TextButton(
       child: container(text, viewportSize),
       onPressed: onTap ?? () {},
@@ -273,7 +279,7 @@ class TextStyling {
 class TextFieldStyling {
   /// Default transparent border
   static final UnderlineInputBorder defaultUnderlineInputBorder =
-  UnderlineInputBorder(
+      UnderlineInputBorder(
     borderSide: new BorderSide(
       color: Colors.transparent,
       style: BorderStyle.none,
