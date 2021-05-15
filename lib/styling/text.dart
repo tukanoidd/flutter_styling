@@ -228,6 +228,11 @@ class TextStyling {
     required String text,
     void Function(bool)? onHover,
     bool hoverUnderline = true,
+    bool alwaysUnderline = false,
+    Color? hoverColor,
+    Color? focusColor,
+    Color? splashColor,
+    Color? highlightColor,
   }) =>
       TappableText(
         onTap: onTap,
@@ -235,6 +240,11 @@ class TextStyling {
         text: text,
         onHover: onHover,
         hoverUnderline: hoverUnderline,
+        alwaysUnderline: alwaysUnderline,
+        focusColor: focusColor,
+        highlightColor: highlightColor,
+        hoverColor: hoverColor,
+        splashColor: splashColor,
       );
 
   /// Create a copy of this styling with overridden members by respective
