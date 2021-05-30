@@ -324,6 +324,8 @@ class TextFieldStyling {
 
   final TextEditingController? controller;
 
+  final void Function(String)? onChanged;
+
   TextFieldStyling({
     this.border,
     this.enabledBorder,
@@ -344,6 +346,7 @@ class TextFieldStyling {
     this.maxLines = 1,
     this.obscureText = false,
     this.keyboardType,
+    this.onChanged,
   }) {
     border = border ?? defaultUnderlineInputBorder;
     enabledBorder = enabledBorder ?? defaultUnderlineInputBorder;
@@ -383,6 +386,7 @@ class TextFieldStyling {
       expands: false,
       controller: controller,
       keyboardType: keyboardType,
+      onChanged: onChanged,
     );
 
     if (heightVH != null || widthVW != null || marginStyling != null) {
@@ -419,6 +423,7 @@ class TextFieldStyling {
     int? newMaxLines,
     bool? newObscureText,
     TextInputType? newKeyboardType,
+    void Function(String)? newOnChanged,
   }) =>
       TextFieldStyling(
         textStyling: newTextStyling ?? textStyling,
@@ -440,5 +445,6 @@ class TextFieldStyling {
         maxLines: newMaxLines ?? maxLines,
         obscureText: newObscureText ?? obscureText,
         keyboardType: newKeyboardType ?? keyboardType,
+        onChanged: newOnChanged ?? onChanged,
       );
 }
