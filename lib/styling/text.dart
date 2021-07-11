@@ -349,11 +349,12 @@ class TextFieldStyling {
     this.onChanged,
   }) {
     border = border ?? defaultUnderlineInputBorder;
-    enabledBorder = enabledBorder ?? defaultUnderlineInputBorder;
-    disabledBorder = disabledBorder ?? defaultUnderlineInputBorder;
-    errorBorder = errorBorder ?? defaultUnderlineInputBorder;
-    focusedBorder = focusedBorder ?? defaultUnderlineInputBorder;
-    focusedErrorBorder = focusedErrorBorder ?? defaultUnderlineInputBorder;
+    enabledBorder = enabledBorder ?? (border ?? defaultUnderlineInputBorder);
+    disabledBorder = disabledBorder ?? (border ?? defaultUnderlineInputBorder);
+    errorBorder = errorBorder ?? (border ?? defaultUnderlineInputBorder);
+    focusedBorder = focusedBorder ?? (border ?? defaultUnderlineInputBorder);
+    focusedErrorBorder =
+        focusedErrorBorder ?? (border ?? defaultUnderlineInputBorder);
 
     if (fillColor == null) fillColor = HexColor('#F0F0F0');
   }
